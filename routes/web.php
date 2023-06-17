@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Route::resource("posts", "\App\Http\Controllers\PostsController");
 
+Route::get("/contact", "PostsController@contact");
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });

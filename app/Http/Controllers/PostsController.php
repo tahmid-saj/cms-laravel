@@ -67,4 +67,8 @@ class PostsController extends Controller
     {
         //
     }
+
+    public function contact() {
+        return view("contact");
+    }
 }
