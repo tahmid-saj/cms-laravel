@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Route::resource("posts", "\App\Http\Controllers\PostsController");
 
-Route::get("/contact", "PostsController@contact");
+Route::get("/contact", "\App\Http\Controllers\PostsController@contact");
+
+Route::get("/post/{id}/{name}/{password}", "\App\Http\Controllers\PostsController@show_post");
 
 // Route::get('/about', function () {
 //     return "Hi about page";
