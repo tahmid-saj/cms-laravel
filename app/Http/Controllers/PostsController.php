@@ -9,11 +9,11 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
         //
-
-        return "its working";
+        
+        return "its working " . $id;
     }
 
     /**
