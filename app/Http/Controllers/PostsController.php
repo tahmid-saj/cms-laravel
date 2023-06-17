@@ -12,7 +12,7 @@ class PostsController extends Controller
     public function index($id)
     {
         //
-        
+
         return "its working " . $id;
     }
 
@@ -22,6 +22,8 @@ class PostsController extends Controller
     public function create()
     {
         //
+
+        return "I am the method that creates stuff";
     }
 
     /**
@@ -38,6 +40,8 @@ class PostsController extends Controller
     public function show(string $id)
     {
         //
+
+        return "this is the show method" . $id;
     }
 
     /**

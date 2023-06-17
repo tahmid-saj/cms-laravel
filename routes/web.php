@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/post/{id}", "\App\Http\Controllers\PostsController@index");
+// Route::get("/post/{id}", "\App\Http\Controllers\PostsController@index");
+
+Route::resource("posts", "\App\Http\Controllers\PostsController");
 
 // Route::get('/about', function () {
 //     return "Hi about page";
