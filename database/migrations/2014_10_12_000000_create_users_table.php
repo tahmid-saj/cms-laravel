@@ -20,6 +20,12 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::create('shoes', function (Blueprint $table) {
+            $table->id();
+            $table->string('brand');
+            
+        });
     }
 
     /**
