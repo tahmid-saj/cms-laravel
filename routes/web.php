@@ -88,6 +88,24 @@ Route::get("/findmore", function() {
     return $posts;
 });
 
+Route::get("/basicinsert", function() {
+    $post = new Post;
+
+    $post->title = 'new Eloquent title insert';
+    $post->content = 'eloquent content';
+
+    $post->save();
+});
+
+Route::get("/basicinsertfind", function() {
+    $post = Post::find(2);
+
+    $post->title = 'new Eloquent title insert 2';
+    $post->content = 'eloquent content 2';
+
+    $post->save();
+});
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
