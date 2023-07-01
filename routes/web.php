@@ -110,6 +110,11 @@ Route::get("/create", function() {
     Post::create(["title"=>'the create method', 'content'=>'php']);
 });
 
+Route::get("/updatewhere", function() {
+    Post::where('id', 2)
+        ->where("is_admin", 0)
+        ->update(['title'=>'new php title', 'content'=>'php content']);
+});
 
 // Route::get('/about', function () {
 //     return "Hi about page";
