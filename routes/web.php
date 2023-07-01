@@ -127,6 +127,10 @@ Route::get("/delete2", function() {
     // Post::where("is_admin", 0)->delete();
 });
 
+Route::get("/softdelete", function() {
+    Post::find(4)->delete();
+});
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
