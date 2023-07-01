@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 // use Illuminate\Support\Facades\DB;
 
 use App\Models\Post;
-
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,6 +148,11 @@ Route::get("/restore", function() {
 
 Route::get("/forcedelete", function() {
     Route::onlyThrashed()->where("is_admin", 4)->forcedelete();
+});
+
+// Eloquent relationships
+Route::get("/user/{id}/post", function($id) {
+    return User::find($id)->post;
 });
 
 // Route::get('/about', function () {
