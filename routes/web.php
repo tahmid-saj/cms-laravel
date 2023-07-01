@@ -116,6 +116,17 @@ Route::get("/updatewhere", function() {
         ->update(['title'=>'new php title', 'content'=>'php content']);
 });
 
+Route::get("/deletefind", function() {
+    $post = Post::find(7);
+    $post->delete();
+});
+
+Route::get("/delete2", function() {
+    Post::destroy([4, 5]);
+
+    // Post::where("is_admin", 0)->delete();
+});
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
