@@ -131,6 +131,20 @@ Route::get("/softdelete", function() {
     Post::find(4)->delete();
 });
 
+Route::get("/readsoftdelete", function() {
+    // $post = Post::find(4);
+
+    // return $post;
+
+    $post = Post::withTrashed()->where("id", 4)->get();
+
+    return $post;
+});
+
+Route::get("/restore", function() {
+    
+})
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
