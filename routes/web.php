@@ -146,6 +146,10 @@ Route::get("/restore", function() {
 
 });
 
+Route::get("/forcedelete", function() {
+    Route::onlyThrashed()->where("is_admin", 4)->forcedelete();
+});
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
