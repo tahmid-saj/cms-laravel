@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,12 @@ Route::get("/contact", "\App\Http\Controllers\PostsController@contact");
 
 Route::get("/post/{id}/{name}/{password}", "\App\Http\Controllers\PostsController@show_post");
 
+// Application routes:
+Route::get("/insert", function() {
+    DB::insert("insert into posts(title, content) values(?, ?)", 
+    ['PHP with Laravel', 'Laravel is the best thing that has happened']);
+});
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
@@ -43,6 +50,6 @@ Route::get("/post/{id}/{name}/{password}", "\App\Http\Controllers\PostsControlle
 //     return "This url is " . $url;
 // }));
 
-Route::group(['middleware' => ['web']], function () {
+// Route::group(['middleware' => ['web']], function () {
 
-});
+// });
