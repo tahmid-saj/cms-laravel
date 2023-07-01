@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 // use Illuminate\Support\Facades\DB;
 
+use App\Models\Post;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,10 +45,31 @@ Route::get("/post/{id}/{name}/{password}", "\App\Http\Controllers\PostsControlle
 //     }
 // });
 
-Route::get("/update", function() {
-    $updated = DB::update("update posts set title = 'updated title' where id = ?", [1]);
+// Route::get("/update", function() {
+//     $updated = DB::update("update posts set title = 'updated title' where id = ?", [1]);
 
-    return $updated;
+//     return $updated;
+// });
+
+// Route::get("/delete", function() {
+//     $deleted = DB::delete("delete from posts where id = ?", [1]);
+
+//     return $deleted;
+// });
+
+// Eloquent / Object relational model - ORM
+Route::get('/read', function() {
+    $posts = Post::all();
+
+    foreach ($posts as $post) {
+        return $post->title;
+    }
+});
+
+Route::get('/find', function() {
+    $post = Post::find(2);
+
+    return $post->title;
 });
 
 // Route::get('/about', function () {
