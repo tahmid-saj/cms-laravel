@@ -78,6 +78,16 @@ Route::get('/findWhere', function() {
     return $posts;
 });
 
+Route::get("/findmore", function() {
+    // $posts = Post::findOrFail(1);
+
+    // return $posts;
+
+    $posts = Post::where("users_count", '<', 50)->findOrFail();
+
+    return $posts;
+});
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
