@@ -142,8 +142,9 @@ Route::get("/readsoftdelete", function() {
 });
 
 Route::get("/restore", function() {
-    
-})
+    Route::withThrashed()->where("is_admin", 4)->restore();
+
+});
 
 // Route::get('/about', function () {
 //     return "Hi about page";
