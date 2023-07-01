@@ -30,32 +30,32 @@ Route::get("/contact", "\App\Http\Controllers\PostsController@contact");
 Route::get("/post/{id}/{name}/{password}", "\App\Http\Controllers\PostsController@show_post");
 
 // Database raw SQL queries
-// Route::get("/insert", function() {
-//     DB::insert("insert into posts(title, content) values(?, ?)", 
-//     ['PHP with Laravel', 'Laravel is the best thing that has happened']);
-// });
+Route::get("/insert", function() {
+    DB::insert("insert into posts(title, content) values(?, ?)", 
+    ['PHP with Laravel 7', 'Laravel is the best thing that has happened']);
+});
 
-// Route::get("/read", function() {
-//     $results = DB::select("select * from posts where id = ?", [1]);
+Route::get("/read", function() {
+    $results = DB::select("select * from posts where id = ?", [1]);
 
-//     return var_dump($results);
+    return var_dump($results);
 
-//     foreach($results as $post) {
-//         return $post->title;
-//     }
-// });
+    foreach($results as $post) {
+        return $post->title;
+    }
+});
 
-// Route::get("/update", function() {
-//     $updated = DB::update("update posts set title = 'updated title' where id = ?", [1]);
+Route::get("/update", function() {
+    $updated = DB::update("update posts set title = 'updated title' where id = ?", [1]);
 
-//     return $updated;
-// });
+    return $updated;
+});
 
-// Route::get("/delete", function() {
-//     $deleted = DB::delete("delete from posts where id = ?", [1]);
+Route::get("/delete", function() {
+    $deleted = DB::delete("delete from posts where id = ?", [1]);
 
-//     return $deleted;
-// });
+    return $deleted;
+});
 
 // Eloquent / Object relational model - ORM
 Route::get('/read', function() {
@@ -70,6 +70,12 @@ Route::get('/find', function() {
     $post = Post::find(2);
 
     return $post->title;
+});
+
+Route::get('/findWhere', function() {
+    $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
+
+    return $posts;
 });
 
 // Route::get('/about', function () {
