@@ -154,11 +154,19 @@ Route::get("/forcedelete", function() {
 
 // One to one relationship
 Route::get("/user/{id}/post", function($id) {
-    return User::find($id)->post;
+    return User::find($id)->post->content;
 });
 
 Route::get("/post/{id}/user", function($id) {
     return Post::find($id)->user->name;
+});
+
+Route::get("/posts", function() {
+    $user = User::find(1);
+
+    foreach($user->posts as $post) {
+        echo $post->title . "<br>";
+    }
 });
 
 // Route::get('/about', function () {
