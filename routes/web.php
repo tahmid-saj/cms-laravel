@@ -106,6 +106,11 @@ Route::get("/basicinsertfind", function() {
     $post->save();
 });
 
+Route::get("/create", function() {
+    Post::create(["title"=>'the create method', 'content'=>'php']);
+});
+
+
 // Route::get('/about', function () {
 //     return "Hi about page";
 // });
