@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -205,11 +206,16 @@ Route::get("/user/{id}/role", function($id) {
 Route::get("/user/pivot", function () {
     $user = User::find(1);
 
-    foreach($user->roles as $role) {
+    foreach ($user->roles as $role) {
         return $role->pivot;
     }
 });
 
 Route::get("/user/country", function() {
-    
+    $country = Country::find(2);
+
+    foreach ($country->posts as $post) {
+        return $post->title;
+    }
 });
+
