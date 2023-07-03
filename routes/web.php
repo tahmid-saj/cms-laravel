@@ -209,3 +209,7 @@ Route::get("/user/pivot", function () {
         return $role->pivot;
     }
 });
+
+Route::get("/user/country", function() {
+    
+});
